@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using CodeBase.Services;
+using UnityEngine;
 
 namespace CodeBase.Infrastructure.States
 {
@@ -6,11 +7,13 @@ namespace CodeBase.Infrastructure.States
     {
         private readonly GameStateMachine gameStateMachine;
         private readonly SceneLoader sceneLoader;
+        private readonly GameFactory gameFactory;
 
-        public LoadLevelState(GameStateMachine gameStateMachine, SceneLoader sceneLoader)
+        public LoadLevelState(GameStateMachine gameStateMachine, SceneLoader sceneLoader, GameFactory gameFactory)
         {
             this.gameStateMachine = gameStateMachine;
             this.sceneLoader = sceneLoader;
+            this.gameFactory = gameFactory;
         }
 
         public void Enter()
@@ -25,7 +28,8 @@ namespace CodeBase.Infrastructure.States
 
         public void Exit()
         {
-            
+            SpawnPlayer();
+            SpawnOrc();
         }
 
         private void OnLoaded()
@@ -36,7 +40,19 @@ namespace CodeBase.Infrastructure.States
                 gameStateMachine.Enter<TutorialState>();
             }
             else
-                gameStateMachine.Enter<GameplayState>();
+                gameStateMachine.Enter<PrepearToAttackState>();
+        }
+
+        private void SpawnPlayer()
+        {
+            GameObject spawnPoint = GameObject.FindGameObjectWithTag(Constance.PlayerSpawnPointTag);
+            gameFactory.CreatePlayer(spawnPoint.transform);
+        }
+
+        private void SpawnOrc()
+        {
+            GameObject spawnPoint = GameObject.FindGameObjectWithTag(Constance.OrcSpawnPointTag);
+            gameFactory.CreateOrc(spawnPoint.transform);
         }
     }
 }

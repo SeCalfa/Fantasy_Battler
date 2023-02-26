@@ -1,21 +1,25 @@
-﻿using System;
+﻿using CodeBase.Services;
+using System;
 using System.Collections.Generic;
 
 namespace CodeBase.Infrastructure.States
 {
-    public class GameStateMachine : IGameStateMachine
+    public class GameStateMachine
     {
         private readonly Dictionary<Type, IState> states;
         private IState activeState;
 
         public GameStateMachine(SceneLoader sceneLoader)
         {
+            GameFactory gameFactory = new GameFactory();
+
             states = new Dictionary<Type, IState>()
             {
                 [typeof(BootstrapState)] = new BootstrapState(this, sceneLoader),
-                [typeof(LoadLevelState)] = new LoadLevelState(this, sceneLoader),
+                [typeof(LoadLevelState)] = new LoadLevelState(this, sceneLoader, gameFactory),
                 [typeof(TutorialState)] = new TutorialState(this),
-                [typeof(GameplayState)] = new GameplayState(this)
+                [typeof(PrepearToAttackState)] = new PrepearToAttackState(this, gameFactory),
+                [typeof(AttackingState)] = new AttackingState()
             };
         }
 
