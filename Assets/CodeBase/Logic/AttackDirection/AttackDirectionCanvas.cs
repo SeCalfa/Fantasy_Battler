@@ -8,10 +8,10 @@ namespace CodeBase.Logic.AttackDirection
         [SerializeField]
         private GameObject[] arrows;
 
-        private ArrowCanvasType arrowCanvasType;
+        private ArrowDirection arrowCanvasType;
         private GameStateMachine gameStateMachine;
 
-        public void Construct(ArrowCanvasType arrowCanvasType, GameStateMachine gameStateMachine)
+        public void Construct(ArrowDirection arrowCanvasType, GameStateMachine gameStateMachine)
         {
             this.arrowCanvasType = arrowCanvasType;
             this.gameStateMachine = gameStateMachine;
@@ -19,9 +19,7 @@ namespace CodeBase.Logic.AttackDirection
 
         public void Attack()
         {
-            print(arrowCanvasType + " | " + name);
-
-            gameStateMachine.Enter<AttackingState>();
+            gameStateMachine.Enter<AttackingState>(arrowCanvasType.ToString());
         }
     }
 }

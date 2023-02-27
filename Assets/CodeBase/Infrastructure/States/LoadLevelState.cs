@@ -1,4 +1,6 @@
-﻿using CodeBase.Services;
+﻿using CodeBase.Logic.UI;
+using CodeBase.Services;
+using CodeBase.Services.Locator;
 using UnityEngine;
 
 namespace CodeBase.Infrastructure.States
@@ -8,12 +10,14 @@ namespace CodeBase.Infrastructure.States
         private readonly GameStateMachine gameStateMachine;
         private readonly SceneLoader sceneLoader;
         private readonly GameFactory gameFactory;
+        private readonly GameObjectsLocator gameObjectsLocator;
 
-        public LoadLevelState(GameStateMachine gameStateMachine, SceneLoader sceneLoader, GameFactory gameFactory)
+        public LoadLevelState(GameStateMachine gameStateMachine, SceneLoader sceneLoader, GameFactory gameFactory, GameObjectsLocator gameObjectsLocator)
         {
             this.gameStateMachine = gameStateMachine;
             this.sceneLoader = sceneLoader;
             this.gameFactory = gameFactory;
+            this.gameObjectsLocator = gameObjectsLocator;
         }
 
         public void Enter()
@@ -28,8 +32,11 @@ namespace CodeBase.Infrastructure.States
 
         public void Exit()
         {
-            SpawnPlayer();
-            SpawnOrc();
+            gameObjectsLocator.RegisterGameObject(Constance.PlayerName, SpawnPlayer());
+            gameObjectsLocator.RegisterGameObject(Constance.OrcName, SpawnOrc());
+            gameObjectsLocator.RegisterGameObject(Constance.PlayerFenceName, SpawnPlayerFence());
+            gameObjectsLocator.RegisterGameObject(Constance.OrcFenceName, SpawnOrcFence());
+            gameObjectsLocator.RegisterGameObject(Constance.CanvasName, SpawnCanvas());
         }
 
         private void OnLoaded()
@@ -43,16 +50,36 @@ namespace CodeBase.Infrastructure.States
                 gameStateMachine.Enter<PrepearToAttackState>();
         }
 
-        private void SpawnPlayer()
+        private GameObject SpawnPlayer()
         {
             GameObject spawnPoint = GameObject.FindGameObjectWithTag(Constance.PlayerSpawnPointTag);
-            gameFactory.CreatePlayer(spawnPoint.transform);
+            return gameFactory.CreatePlayer(spawnPoint.transform);
         }
 
-        private void SpawnOrc()
+        private GameObject SpawnOrc()
         {
             GameObject spawnPoint = GameObject.FindGameObjectWithTag(Constance.OrcSpawnPointTag);
-            gameFactory.CreateOrc(spawnPoint.transform);
+            return gameFactory.CreateOrc(spawnPoint.transform);
+        }
+
+        private GameObject SpawnPlayerFence()
+        {
+            GameObject spawnPoint = GameObject.FindGameObjectWithTag(Constance.PlayerFenceTag);
+            return gameFactory.CreatePlayerFence(spawnPoint.transform);
+        }
+
+        private GameObject SpawnOrcFence()
+        {
+            GameObject spawnPoint = GameObject.FindGameObjectWithTag(Constance.OrcFenceTag);
+            return gameFactory.CreateOrcFence(spawnPoint.transform);
+        }
+
+        private GameObject SpawnCanvas()
+        {
+            GameObject canvas = gameFactory.CreateCanvas();
+            canvas.GetComponent<MainCanvas>().Construct(gameStateMachine);
+
+            return canvas;
         }
     }
 }

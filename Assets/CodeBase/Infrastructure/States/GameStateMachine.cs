@@ -1,4 +1,5 @@
 ﻿using CodeBase.Services;
+using CodeBase.Services.Locator;
 using System;
 using System.Collections.Generic;
 
@@ -12,14 +13,16 @@ namespace CodeBase.Infrastructure.States
         public GameStateMachine(SceneLoader sceneLoader)
         {
             GameFactory gameFactory = new GameFactory();
+            RandomService randomService = new RandomService();
+            GameObjectsLocator gameObjectsLocator = new GameObjectsLocator();
 
             states = new Dictionary<Type, IState>()
             {
                 [typeof(BootstrapState)] = new BootstrapState(this, sceneLoader),
-                [typeof(LoadLevelState)] = new LoadLevelState(this, sceneLoader, gameFactory),
+                [typeof(LoadLevelState)] = new LoadLevelState(this, sceneLoader, gameFactory, gameObjectsLocator),
                 [typeof(TutorialState)] = new TutorialState(this),
-                [typeof(PrepearToAttackState)] = new PrepearToAttackState(this, gameFactory),
-                [typeof(AttackingState)] = new AttackingState()
+                [typeof(PrepearToAttackState)] = new PrepearToAttackState(this, gameFactory, gameObjectsLocator),
+                [typeof(AttackingState)] = new AttackingState(this, randomService, gameObjectsLocator)
             };
         }
 

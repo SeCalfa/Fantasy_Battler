@@ -1,6 +1,6 @@
 ﻿namespace CodeBase.Logic.AttackDirection
 {
-    public enum ArrowCanvasType : byte
+    public enum ArrowDirection : byte
     {
         Left,
         Right

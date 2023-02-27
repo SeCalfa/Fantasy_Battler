@@ -28,5 +28,29 @@ namespace CodeBase.Services
 
             return arrow;
         }
+
+        public GameObject CreatePlayerFence(Transform at)
+        {
+            GameObject fence = Resources.Load(Constance.FencePath) as GameObject;
+            GameObject playerFence = Object.Instantiate(fence, at.position, at.rotation);
+
+            return playerFence;
+        }
+
+        public GameObject CreateOrcFence(Transform at)
+        {
+            GameObject fence = Resources.Load(Constance.FencePath) as GameObject;
+            GameObject orcFence = Object.Instantiate(fence, at.position, at.rotation);
+
+            return orcFence;
+        }
+
+        public GameObject CreateCanvas()
+        {
+            GameObject canvas = Resources.Load(Constance.CanvasPath) as GameObject;
+            GameObject mainCanvas = Object.Instantiate(canvas);
+
+            return mainCanvas;
+        }
     }
 }
