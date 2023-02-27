@@ -1,4 +1,6 @@
-﻿using CodeBase.Logic.UI;
+﻿using CodeBase.Logic.OrcComponents;
+using CodeBase.Logic.PlayerComponents;
+using CodeBase.Logic.UI;
 using CodeBase.Services;
 using CodeBase.Services.Locator;
 using UnityEngine;
@@ -53,13 +55,19 @@ namespace CodeBase.Infrastructure.States
         private GameObject SpawnPlayer()
         {
             GameObject spawnPoint = GameObject.FindGameObjectWithTag(Constance.PlayerSpawnPointTag);
-            return gameFactory.CreatePlayer(spawnPoint.transform);
+            GameObject player = gameFactory.CreatePlayer(spawnPoint.transform);
+            player.GetComponent<Player>().Construct(spawnPoint.transform, gameObjectsLocator, gameStateMachine);
+
+            return player;
         }
 
         private GameObject SpawnOrc()
         {
             GameObject spawnPoint = GameObject.FindGameObjectWithTag(Constance.OrcSpawnPointTag);
-            return gameFactory.CreateOrc(spawnPoint.transform);
+            GameObject orc = gameFactory.CreateOrc(spawnPoint.transform);
+            orc.GetComponent<Orc>().Construct(spawnPoint.transform);
+
+            return orc;
         }
 
         private GameObject SpawnPlayerFence()

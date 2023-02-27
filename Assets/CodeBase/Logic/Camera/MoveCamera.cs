@@ -15,20 +15,18 @@ namespace CodeBase.Logic.Camera
         private float alpha = 0;
         private bool isAttackCameraMove = false;
 
-        //private void Update()
-        //{
-        //    if(Input.GetKeyDown(KeyCode.Space))
-        //    {
-        //        isAttackCameraMove = true;
-        //    }
-        //}
-
         private void LateUpdate()
         {
             AttackCameraMove();
         }
 
         public void AttackOn() => isAttackCameraMove = true;
+
+        public void ReturnToStartPos()
+        {
+            transform.position = cameraStartPoint.position;
+            transform.rotation = cameraStartPoint.rotation;
+        }
 
         private void AttackCameraMove()
         {

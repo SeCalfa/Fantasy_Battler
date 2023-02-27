@@ -1,7 +1,8 @@
 ﻿using CodeBase.Logic.AttackDirection;
 using CodeBase.Logic.Camera;
 using CodeBase.Logic.Fence;
-using CodeBase.Logic.Player;
+using CodeBase.Logic.OrcComponents;
+using CodeBase.Logic.PlayerComponents;
 using CodeBase.Logic.UI;
 using CodeBase.Services;
 using CodeBase.Services.Locator;
@@ -46,12 +47,17 @@ namespace CodeBase.Infrastructure.States
             GamePanelOff();
             OrcSetPosition();
             PlayerRunForAttack();
+            SidesConstruct();
             Camera.main.GetComponent<MoveCamera>().AttackOn();
         }
 
         public void Exit()
         {
-            
+            Camera.main.GetComponent<MoveCamera>().ReturnToStartPos();
+            gameObjectsLocator.GetGameObjectByName(Constance.PlayerName).GetComponent<Player>().ReturnToStartPos();
+            gameObjectsLocator.GetGameObjectByName(Constance.OrcName).GetComponent<Orc>().ReturnToStartPos();
+            gameObjectsLocator.GetGameObjectByName(Constance.OrcFenceName).GetComponent<Fence>().LeftFencesOff();
+            gameObjectsLocator.GetGameObjectByName(Constance.OrcFenceName).GetComponent<Fence>().RightFencesOff();
         }
 
         private void ActivateOrcFence()
@@ -91,6 +97,12 @@ namespace CodeBase.Infrastructure.States
                 target = orcFence.GetComponent<Fence>().GetLeftPositionForAttacker;
 
             gameObjectsLocator.GetGameObjectByName(Constance.PlayerName).GetComponent<Player>().StartMove(target);
+        }
+
+        private void SidesConstruct()
+        {
+            gameObjectsLocator.GetGameObjectByName(Constance.PlayerName).GetComponent<Player>().SetPlayerAttackSide(playerAttackSide);
+            gameObjectsLocator.GetGameObjectByName(Constance.PlayerName).GetComponent<Player>().SetOrcDefSide(orcDeffenceSide);
         }
     }
 }

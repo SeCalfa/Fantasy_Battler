@@ -49,6 +49,8 @@ namespace CodeBase.Logic.UI
 
         private IEnumerator Timer()
         {
+            currentTime = maxTime;
+
             while (currentTime > 0)
             {
                 yield return new WaitForSeconds(0.02f);

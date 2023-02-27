@@ -33,13 +33,13 @@ namespace CodeBase.Logic.Fence
         public void RightFencesOff()
         {
             foreach (var fence in rightFences)
-                fence.SetActive(true);
+                fence.SetActive(false);
         }
 
         public void LeftFencesOff()
         {
             foreach (var fence in leftFences)
-                fence.SetActive(true);
+                fence.SetActive(false);
         }
 
         public Vector3 GetRightPosition =>
