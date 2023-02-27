@@ -11,16 +11,24 @@ namespace CodeBase.Logic.Camera
         private Transform attackStartPoint;
         [SerializeField]
         private Transform attackEndPoint;
+        [Space]
+        [SerializeField]
+        private Transform defenceStartPoint;
+        [SerializeField]
+        private Transform defenceEndPoint;
 
         private float alpha = 0;
         private bool isAttackCameraMove = false;
+        private bool isDefenceCameraMove = false;
 
         private void LateUpdate()
         {
             AttackCameraMove();
+            DefenceCameraMove();
         }
 
         public void AttackOn() => isAttackCameraMove = true;
+        public void DefenceOn() => isDefenceCameraMove = true;
 
         public void ReturnToStartPos()
         {
@@ -39,6 +47,22 @@ namespace CodeBase.Logic.Camera
                 if(alpha == 1)
                 {
                     isAttackCameraMove = false;
+                    alpha = 0;
+                }
+            }
+        }
+
+        private void DefenceCameraMove()
+        {
+            if (isDefenceCameraMove)
+            {
+                alpha = Mathf.Clamp01(alpha + Time.deltaTime / 2);
+                transform.position = Vector3.Lerp(defenceStartPoint.position, defenceEndPoint.position, alpha);
+                transform.rotation = Quaternion.Lerp(defenceStartPoint.rotation, defenceEndPoint.rotation, alpha);
+
+                if (alpha == 1)
+                {
+                    isDefenceCameraMove = false;
                     alpha = 0;
                 }
             }

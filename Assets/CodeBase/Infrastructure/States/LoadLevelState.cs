@@ -65,7 +65,7 @@ namespace CodeBase.Infrastructure.States
         {
             GameObject spawnPoint = GameObject.FindGameObjectWithTag(Constance.OrcSpawnPointTag);
             GameObject orc = gameFactory.CreateOrc(spawnPoint.transform);
-            orc.GetComponent<Orc>().Construct(spawnPoint.transform);
+            orc.GetComponent<Orc>().Construct(spawnPoint.transform, gameObjectsLocator, gameStateMachine);
 
             return orc;
         }

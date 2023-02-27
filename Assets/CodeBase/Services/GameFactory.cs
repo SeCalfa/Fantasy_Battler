@@ -20,9 +20,18 @@ namespace CodeBase.Services
             return orc;
         }
 
-        public GameObject CreateArrowCanvas(RectTransform at)
+        public GameObject CreateArrowAttackCanvas(RectTransform at)
         {
-            GameObject arrowCanvasPrefab = Resources.Load(Constance.ArrowsPath) as GameObject;
+            GameObject arrowCanvasPrefab = Resources.Load(Constance.ArrowsAttackPath) as GameObject;
+            GameObject arrow = Object.Instantiate(arrowCanvasPrefab, at.position, at.rotation);
+            arrow.GetComponent<RectTransform>().sizeDelta = at.sizeDelta;
+
+            return arrow;
+        }
+
+        public GameObject CreateArrowDefenceCanvas(RectTransform at)
+        {
+            GameObject arrowCanvasPrefab = Resources.Load(Constance.ArrowsDefencePath) as GameObject;
             GameObject arrow = Object.Instantiate(arrowCanvasPrefab, at.position, at.rotation);
             arrow.GetComponent<RectTransform>().sizeDelta = at.sizeDelta;
 

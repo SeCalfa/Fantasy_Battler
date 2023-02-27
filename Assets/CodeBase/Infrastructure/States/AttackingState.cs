@@ -1,4 +1,4 @@
-﻿using CodeBase.Logic.AttackDirection;
+﻿using CodeBase.Logic;
 using CodeBase.Logic.Camera;
 using CodeBase.Logic.Fence;
 using CodeBase.Logic.OrcComponents;
@@ -7,7 +7,6 @@ using CodeBase.Logic.UI;
 using CodeBase.Services;
 using CodeBase.Services.Locator;
 using UnityEngine;
-using UnityEngine.AI;
 
 namespace CodeBase.Infrastructure.States
 {

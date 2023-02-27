@@ -74,6 +74,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7495618283690430370}
   - component: {fileID: 7495618283690429533}
+  - component: {fileID: 6347102213313310614}
   - component: {fileID: 4828289149279055954}
   m_Layer: 0
   m_Name: Orc
@@ -119,6 +120,28 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!195 &6347102213313310614
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7495618283690429532}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.4
+  m_Speed: 2.45
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 1.5
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
 --- !u!114 &4828289149279055954
 MonoBehaviour:
   m_ObjectHideFlags: 0

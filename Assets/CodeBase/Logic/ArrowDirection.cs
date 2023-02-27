@@ -1,4 +1,4 @@
-﻿namespace CodeBase.Logic.AttackDirection
+﻿namespace CodeBase.Logic
 {
     public enum ArrowDirection : byte
     {

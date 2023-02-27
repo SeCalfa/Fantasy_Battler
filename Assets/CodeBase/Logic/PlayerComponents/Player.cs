@@ -39,7 +39,6 @@ namespace CodeBase.Logic.PlayerComponents
         private void Update()
         {
             Movement();
-            print(isMove);
         }
 
         public void StartMove(Vector3 endPoint)
@@ -53,6 +52,13 @@ namespace CodeBase.Logic.PlayerComponents
 
         public void SetPlayerAttackSide(ArrowDirection side) =>
             playerAttackSide = side;
+
+        public void TakeDamage()
+        {
+            animator.SetTrigger("GetHit");
+
+            print("Take damage");
+        }
 
         public void ReturnToStartPos()
         {
@@ -83,7 +89,7 @@ namespace CodeBase.Logic.PlayerComponents
         {
             yield return new WaitForSeconds(3f);
 
-            gameStateMachine.Enter<PrepearToAttackState>();
+            gameStateMachine.Enter<PrepearToDefenceState>();
         }
 
         // For event on attack animation

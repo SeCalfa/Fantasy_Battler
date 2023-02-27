@@ -8,7 +8,8 @@
         public const string PlayerPath = "Player";
         public const string OrcPath = "Orc";
         public const string FencePath = "Fence";
-        public const string ArrowsPath = "UI/ArrowCanvas";
+        public const string ArrowsAttackPath = "UI/ArrowAttackCanvas";
+        public const string ArrowsDefencePath = "UI/ArrowDefenceCanvas";
         public const string CanvasPath = "UI/Canvas";
 
         public const string PlayerSpawnPointTag = "Player";

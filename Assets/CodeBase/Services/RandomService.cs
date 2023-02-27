@@ -1,4 +1,4 @@
-﻿using CodeBase.Logic.AttackDirection;
+﻿using CodeBase.Logic;
 using UnityEngine;
 
 namespace CodeBase.Services

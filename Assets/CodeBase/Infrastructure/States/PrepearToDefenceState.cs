@@ -1,14 +1,14 @@
 ﻿using CodeBase.Logic;
-using CodeBase.Logic.AttackDirection;
-using CodeBase.Logic.UI;
 using CodeBase.Services;
-using CodeBase.Services.Locator;
 using System.Collections.Generic;
 using UnityEngine;
+using CodeBase.Logic.DefenceDirection;
+using CodeBase.Services.Locator;
+using CodeBase.Logic.UI;
 
 namespace CodeBase.Infrastructure.States
 {
-    public class PrepearToAttackState : IState
+    public class PrepearToDefenceState : IState
     {
         private readonly GameStateMachine gameStateMachine;
         private readonly GameFactory gameFactory;
@@ -16,7 +16,7 @@ namespace CodeBase.Infrastructure.States
 
         private List<GameObject> arrows;
 
-        public PrepearToAttackState(GameStateMachine gameStateMachine, GameFactory gameFactory, GameObjectsLocator gameObjectsLocator)
+        public PrepearToDefenceState(GameStateMachine gameStateMachine, GameFactory gameFactory, GameObjectsLocator gameObjectsLocator)
         {
             this.gameStateMachine = gameStateMachine;
             this.gameFactory = gameFactory;
@@ -50,11 +50,11 @@ namespace CodeBase.Infrastructure.States
             GameObject spawnPointLeft = GameObject.FindGameObjectWithTag(Constance.ArrowsSpawnPointLeftTag);
             GameObject spawnPointRight = GameObject.FindGameObjectWithTag(Constance.ArrowsSpawnPointRightTag);
 
-            GameObject left = gameFactory.CreateArrowAttackCanvas(spawnPointLeft.GetComponent<RectTransform>());
-            GameObject right = gameFactory.CreateArrowAttackCanvas(spawnPointRight.GetComponent<RectTransform>());
+            GameObject left = gameFactory.CreateArrowDefenceCanvas(spawnPointLeft.GetComponent<RectTransform>());
+            GameObject right = gameFactory.CreateArrowDefenceCanvas(spawnPointRight.GetComponent<RectTransform>());
 
-            left.GetComponent<AttackDirectionCanvas>().Construct(ArrowDirection.Left, gameStateMachine);
-            right.GetComponent<AttackDirectionCanvas>().Construct(ArrowDirection.Right, gameStateMachine);
+            left.GetComponent<DefenceDirectionCanvas>().Construct(ArrowDirection.Left, gameStateMachine);
+            right.GetComponent<DefenceDirectionCanvas>().Construct(ArrowDirection.Right, gameStateMachine);
 
             return new List<GameObject>() { left, right };
         }
