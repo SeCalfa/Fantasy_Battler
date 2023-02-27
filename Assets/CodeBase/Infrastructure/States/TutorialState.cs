@@ -11,7 +11,7 @@
 
         public void Enter()
         {
-            
+            gameStateMachine.Enter<PrepearToAttackState>();
         }
 
         public void EnterWithParam(string param)
