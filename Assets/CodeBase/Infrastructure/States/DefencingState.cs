@@ -43,7 +43,6 @@ namespace CodeBase.Infrastructure.States
             Debug.Log($"Orc attack: {orcAttackSide}. Player deffence: {playerDeffenceSide}");
 
             ActivatePlayerFence();
-            GamePanelOff();
             PlayerSetPosition();
             OrcRunForAttack();
             SidesConstruct();
@@ -66,12 +65,6 @@ namespace CodeBase.Infrastructure.States
                 orcFence.GetComponent<Fence>().LeftFencesOn();
             else
                 orcFence.GetComponent<Fence>().RightFencesOn();
-        }
-
-        private void GamePanelOff()
-        {
-            gameObjectsLocator.GetGameObjectByName(Constance.CanvasName).GetComponent<MainCanvas>().TimerOff();
-            gameObjectsLocator.GetGameObjectByName(Constance.CanvasName).GetComponent<MainCanvas>().GamePanelOff();
         }
 
         private void PlayerSetPosition()

@@ -24,7 +24,8 @@ namespace CodeBase.Infrastructure.States
                 [typeof(PrepearToAttackState)] = new PrepearToAttackState(this, gameFactory, gameObjectsLocator),
                 [typeof(AttackingState)] = new AttackingState(this, randomService, gameObjectsLocator),
                 [typeof(PrepearToDefenceState)] = new PrepearToDefenceState(this, gameFactory, gameObjectsLocator),
-                [typeof(DefencingState)] = new DefencingState(this, randomService, gameObjectsLocator)
+                [typeof(DefencingState)] = new DefencingState(this, randomService, gameObjectsLocator),
+                [typeof(SkipTurnState)] = new SkipTurnState(gameObjectsLocator)
             };
         }
 

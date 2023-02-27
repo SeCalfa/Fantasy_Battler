@@ -43,6 +43,7 @@ namespace CodeBase.Infrastructure.States
                 Object.Destroy(arrow);
 
             arrows.Clear();
+            GamePanelOff();
         }
 
         private List<GameObject> SpawnArrows()
@@ -57,6 +58,12 @@ namespace CodeBase.Infrastructure.States
             right.GetComponent<DefenceDirectionCanvas>().Construct(ArrowDirection.Right, gameStateMachine);
 
             return new List<GameObject>() { left, right };
+        }
+
+        private void GamePanelOff()
+        {
+            gameObjectsLocator.GetGameObjectByName(Constance.CanvasName).GetComponent<MainCanvas>().TimerOff();
+            gameObjectsLocator.GetGameObjectByName(Constance.CanvasName).GetComponent<MainCanvas>().GamePanelOff();
         }
     }
 }

@@ -17,6 +17,8 @@ namespace CodeBase.Logic.Fence
         private Transform rightPositionForAttacker;
         [SerializeField]
         private Transform leftPositionForAttacker;
+        [SerializeField]
+        private Transform middlePositionForAttacker;
 
         public void RightFencesOn()
         {
@@ -53,5 +55,8 @@ namespace CodeBase.Logic.Fence
 
         public Vector3 GetLeftPositionForAttacker =>
             leftPositionForAttacker.position;
+
+        public Vector3 GetMiddlePositionForAttacker =>
+            middlePositionForAttacker.position;
     }
 }

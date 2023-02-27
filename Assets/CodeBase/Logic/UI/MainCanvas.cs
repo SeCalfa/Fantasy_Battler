@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 namespace CodeBase.Logic.UI
 {
@@ -14,6 +15,8 @@ namespace CodeBase.Logic.UI
         private GameObject gamePanel;
         [SerializeField]
         private Image timeSliderFront;
+        [SerializeField]
+        private TextMeshProUGUI timeText;
 
         private GameStateMachine gameStateMachine;
 
@@ -57,9 +60,10 @@ namespace CodeBase.Logic.UI
                 currentTime -= 0.02f;
 
                 timeSliderFront.fillAmount = currentTime / maxTime;
+                timeText.text = currentTime.ToString("0.0s");
             }
 
-
+            gameStateMachine.Enter<SkipTurnState>();
         }
     }
 }
