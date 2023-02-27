@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace CodeBase.Logic.Camera
+namespace CodeBase.Logic.MainCamera
 {
     public class MoveCamera : MonoBehaviour
     {

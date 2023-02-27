@@ -1,4 +1,4 @@
-﻿using CodeBase.Logic.Camera;
+﻿using CodeBase.Logic.MainCamera;
 using CodeBase.Services.Locator;
 using CodeBase.Services;
 using UnityEngine;

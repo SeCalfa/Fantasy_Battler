@@ -1,5 +1,5 @@
 ﻿using CodeBase.Logic;
-using CodeBase.Logic.Camera;
+using CodeBase.Logic.MainCamera;
 using CodeBase.Logic.Fence;
 using CodeBase.Logic.OrcComponents;
 using CodeBase.Logic.PlayerComponents;

@@ -1,8 +1,8 @@
 ﻿using CodeBase.Infrastructure.States;
 using CodeBase.Logic.PlayerComponents;
+using CodeBase.Logic.UI;
 using CodeBase.Services.Locator;
 using System.Collections;
-using System.Net;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -11,6 +11,9 @@ namespace CodeBase.Logic.OrcComponents
     [RequireComponent(typeof(NavMeshAgent), typeof(Animator))]
     public class Orc : MonoBehaviour
     {
+        [SerializeField]
+        private HealthPointPresenter hpPresenter;
+
         private Transform spawnPoint;
         private GameObjectsLocator gameObjectsLocator;
         private GameStateMachine gameStateMachine;
@@ -18,6 +21,7 @@ namespace CodeBase.Logic.OrcComponents
         private NavMeshAgent agent;
         private Animator animator;
 
+        private int hp = 3;
         private bool isMove = false;
         private Vector3 endPoint;
         private ArrowDirection orcAttackSide;
@@ -55,9 +59,16 @@ namespace CodeBase.Logic.OrcComponents
 
         public void TakeDamage()
         {
-            animator.SetTrigger("GetHit");
+            hp -= 1;
 
-            print("Take damage");
+            if (hp == 0)
+            {
+                animator.SetTrigger("Die");
+            }
+            else
+                animator.SetTrigger("GetHit");
+
+            hpPresenter.UpdateHp(hp);
         }
 
         public void ReturnToStartPos()
