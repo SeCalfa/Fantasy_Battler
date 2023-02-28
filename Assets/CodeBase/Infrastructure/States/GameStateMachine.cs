@@ -20,7 +20,7 @@ namespace CodeBase.Infrastructure.States
             {
                 [typeof(BootstrapState)] = new BootstrapState(this, sceneLoader),
                 [typeof(LoadLevelState)] = new LoadLevelState(this, sceneLoader, gameFactory, gameObjectsLocator),
-                [typeof(TutorialState)] = new TutorialState(this),
+                [typeof(TutorialState)] = new TutorialState(gameObjectsLocator),
                 [typeof(PrepearToAttackState)] = new PrepearToAttackState(this, gameFactory, gameObjectsLocator),
                 [typeof(AttackingState)] = new AttackingState(randomService, gameObjectsLocator),
                 [typeof(PrepearToDefenceState)] = new PrepearToDefenceState(this, gameFactory, gameObjectsLocator),

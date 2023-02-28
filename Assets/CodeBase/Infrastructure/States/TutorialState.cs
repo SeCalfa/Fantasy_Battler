@@ -1,17 +1,20 @@
-﻿namespace CodeBase.Infrastructure.States
+﻿using CodeBase.Logic.UI;
+using CodeBase.Services.Locator;
+
+namespace CodeBase.Infrastructure.States
 {
     public class TutorialState : IState
     {
-        private readonly GameStateMachine gameStateMachine;
+        private readonly GameObjectsLocator gameObjectsLocator;
 
-        public TutorialState(GameStateMachine gameStateMachine)
+        public TutorialState(GameObjectsLocator gameObjectsLocator)
         {
-            this.gameStateMachine = gameStateMachine;
+            this.gameObjectsLocator = gameObjectsLocator;
         }
 
         public void Enter()
         {
-            gameStateMachine.Enter<PrepearToAttackState>();
+            gameObjectsLocator.GetGameObjectByName(Constance.CanvasName).GetComponent<MainCanvas>().TutorialPanelOn();
         }
 
         public void EnterWithParam(string param)
@@ -21,7 +24,7 @@
 
         public void Exit()
         {
-            
+            gameObjectsLocator.GetGameObjectByName(Constance.CanvasName).GetComponent<MainCanvas>().TutorialPanelOff();
         }
     }
 }

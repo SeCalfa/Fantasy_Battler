@@ -77,6 +77,11 @@ namespace CodeBase.Logic.UI
             timerCoroutine = null;
         }
 
+        public void TutorialEnd()
+        {
+            gameStateMachine.Enter<PrepearToAttackState>();
+        }
+
         private IEnumerator Timer()
         {
             currentTime = maxTime;
