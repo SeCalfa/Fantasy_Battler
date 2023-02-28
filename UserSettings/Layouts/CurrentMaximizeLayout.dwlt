@@ -25,7 +25,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 200}
   m_MaxSize: {x: 24288, y: 16192}
   vertical: 0
-  controlID: 33432
+  controlID: 54726
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -77,10 +77,10 @@ MonoBehaviour:
     m_VRangeLocked: 0
     hZoomLockedByDefault: 0
     vZoomLockedByDefault: 0
-    m_HBaseRangeMin: -768
-    m_HBaseRangeMax: 768
-    m_VBaseRangeMin: -432
-    m_VBaseRangeMax: 432
+    m_HBaseRangeMin: -280
+    m_HBaseRangeMax: 280
+    m_VBaseRangeMin: -157.59999
+    m_VBaseRangeMax: 157.59999
     m_HAllowExceedBaseRangeMin: 1
     m_HAllowExceedBaseRangeMax: 1
     m_VAllowExceedBaseRangeMin: 1
@@ -89,7 +89,7 @@ MonoBehaviour:
     m_HSlider: 0
     m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
-    m_EnableMouseInput: 1
+    m_EnableMouseInput: 0
     m_EnableSliderZoomHorizontal: 0
     m_EnableSliderZoomVertical: 0
     m_UniformScale: 1
@@ -100,7 +100,7 @@ MonoBehaviour:
       y: 21
       width: 622.2
       height: 315.19998
-    m_Scale: {x: 0.3648148, y: 0.3648148}
+    m_Scale: {x: 1, y: 1}
     m_Translation: {x: 311.1, y: 157.59999}
     m_MarginLeft: 0
     m_MarginRight: 0
@@ -108,12 +108,12 @@ MonoBehaviour:
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -852.7615
-      y: -432
-      width: 1705.523
-      height: 864
+      x: -311.1
+      y: -157.59999
+      width: 622.2
+      height: 315.19998
     m_MinimalGUI: 1
-  m_defaultScale: 0.3648148
+  m_defaultScale: 1
   m_LastWindowPixelSize: {x: 777.75, y: 420.24997}
   m_ClearInEditMode: 1
   m_NoCameraWarning: 1
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 33433
+  controlID: 54727
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -432,9 +432,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 42.99721, y: -33.593178, z: 31.91214}
+    m_Target: {x: 46.627415, y: -28.077509, z: 39.121998}
     speed: 2
-    m_Value: {x: 42.99721, y: -33.593178, z: 31.91214}
+    m_Value: {x: 46.627415, y: -28.077509, z: 39.121998}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -481,9 +481,9 @@ MonoBehaviour:
     m_GridAxis: 1
     m_gridOpacity: 0.5
   m_Rotation:
-    m_Target: {x: 0.25026557, y: 0.42605203, z: -0.1237578, w: 0.86069804}
+    m_Target: {x: 0.20580578, y: 0.42277336, z: -0.0990758, w: 0.87713265}
     speed: 2
-    m_Value: {x: 0.25023177, y: 0.4259945, z: -0.12374109, w: 0.8605818}
+    m_Value: {x: 0.20577788, y: 0.42271605, z: -0.099062376, w: 0.8770138}
   m_Size:
     m_Target: 33.787136
     speed: 2
@@ -505,7 +505,7 @@ MonoBehaviour:
     m_FarClip: 10000
     m_DynamicClip: 1
     m_OcclusionCulling: 0
-  m_LastSceneViewRotation: {x: -0.08717229, y: 0.89959055, z: -0.21045254, w: -0.3726226}
+  m_LastSceneViewRotation: {x: 0.00048784862, y: -0.99930584, z: 0.037204273, w: 0.011704373}
   m_LastSceneViewOrtho: 0
   m_ReplacementShader: {fileID: 0}
   m_ReplacementString: 
@@ -545,14 +545,14 @@ MonoBehaviour:
     - {fileID: 1107905649089028422, guid: b60dc9aa529b314489f628aa3b57c470, type: 2}
     - {fileID: 110700000, guid: e58bf4525b7cc80459d6f7ff033ea067, type: 2}
     m_ValueSerializationHelper:
-    - e00: 0.62205577
+    - e00: 0.30438098
       e01: 0
       e02: 0
-      e03: -156.46503
+      e03: 15
       e10: 0
-      e11: 0.62205577
+      e11: 0.30438098
       e12: 0
-      e13: 288.761
+      e13: 232.89523
       e20: 0
       e21: 0
       e22: 1
@@ -561,14 +561,14 @@ MonoBehaviour:
       e31: 0
       e32: 0
       e33: 1
-    - e00: 0.45682898
+    - e00: 0.32976744
       e01: 0
       e02: 0
-      e03: -83.52965
+      e03: 59.381416
       e10: 0
-      e11: 0.45682898
+      e11: 0.32976744
       e12: 0
-      e13: 150.23785
+      e13: 183.1814
       e20: 0
       e21: 0
       e22: 1
@@ -706,7 +706,7 @@ MonoBehaviour:
     m_SaveData: []
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: 160638
+  m_LastSelectedObjectID: -204398
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -731,7 +731,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 33401
+  controlID: 54632
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -791,7 +791,7 @@ MonoBehaviour:
       scrollPos: {x: 0, y: 0}
       m_SelectedIDs: 
       m_LastClickedID: 0
-      m_ExpandedIDs: 849efdffaaa0fdff087efeff5a7ffeff807ffeff40e9feff0eecfeff32fbffffda7e0200
+      m_ExpandedIDs: 8021fcffd23ffcff8a55fcff849efdffaaa0fdff087efeff5a7ffeff807ffeff40e9feff0eecfeff32fbffffda7e0200
       m_RenameOverlay:
         m_UserAcceptedRename: 0
         m_Name: 
@@ -882,22 +882,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/CodeBase/Logic/Fence
+    - Assets/Resources/UI
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/CodeBase/Logic/Fence
+  - Assets/Resources/UI
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\UnityProjects\Fantasy_Battler
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 207}
-    m_SelectedIDs: 285b0000
-    m_LastClickedID: 23336
-    m_ExpandedIDs: 00000000f85a0000fa5a0000fc5a0000fe5a0000005b0000025b0000045b0000065b000000ca9a3b
+    scrollPos: {x: 0, y: 172.6}
+    m_SelectedIDs: 3e5b0000
+    m_LastClickedID: 23358
+    m_ExpandedIDs: 00000000f85a0000fa5a0000fc5a0000fe5a0000005b0000025b0000065b000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -952,7 +952,7 @@ MonoBehaviour:
   m_ListAreaState:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
-    m_HadKeyboardFocusLastEvent: 0
+    m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: 
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -1000,8 +1000,8 @@ MonoBehaviour:
     y: 0
     width: 499.19995
     height: 730.8
-  m_MinSize: {x: 276, y: 71}
-  m_MaxSize: {x: 4001, y: 4021}
+  m_MinSize: {x: 275, y: 50}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 17}

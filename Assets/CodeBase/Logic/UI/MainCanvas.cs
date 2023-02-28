@@ -17,6 +17,15 @@ namespace CodeBase.Logic.UI
         private Image timeSliderFront;
         [SerializeField]
         private TextMeshProUGUI timeText;
+        [Space]
+        [SerializeField]
+        private GameObject winPanel;
+        [SerializeField]
+        private GameObject losePanel;
+        [SerializeField]
+        private Button winPlayAgain;
+        [SerializeField]
+        private Button losePlayAgain;
 
         private GameStateMachine gameStateMachine;
 
@@ -27,6 +36,12 @@ namespace CodeBase.Logic.UI
         public void Construct(GameStateMachine gameStateMachine)
         {
             this.gameStateMachine = gameStateMachine;
+        }
+
+        private void Awake()
+        {
+            winPlayAgain.onClick.AddListener(PlayAgain);
+            losePlayAgain.onClick.AddListener(PlayAgain);
         }
 
         public void TutorialPanelOn() =>
@@ -40,6 +55,18 @@ namespace CodeBase.Logic.UI
 
         public void GamePanelOff() =>
             gamePanel.SetActive(false);
+
+        public void WinPanelOn() =>
+            winPanel.SetActive(true);
+
+        public void WinPanelOff() =>
+            winPanel.SetActive(false);
+
+        public void LosePanelOn() =>
+            losePanel.SetActive(true);
+
+        public void LosePanelOff() =>
+            losePanel.SetActive(false);
 
         public void TimerOn() =>
             timerCoroutine = StartCoroutine(Timer());
@@ -64,6 +91,11 @@ namespace CodeBase.Logic.UI
             }
 
             gameStateMachine.Enter<SkipTurnState>();
+        }
+
+        private void PlayAgain()
+        {
+            gameStateMachine.Enter<PrepearToAttackState>();
         }
     }
 }

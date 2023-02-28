@@ -21,11 +21,12 @@ namespace CodeBase.Logic.OrcComponents
         private NavMeshAgent agent;
         private Animator animator;
 
-        private int hp = 3;
         private bool isMove = false;
         private Vector3 endPoint;
         private ArrowDirection orcAttackSide;
         private ArrowDirection playerDefenceSide;
+
+        public int hp { get; private set; } = 3;
 
         public void Construct(Transform spawnPoint, GameObjectsLocator gameObjectsLocator, GameStateMachine gameStateMachine)
         {
@@ -63,6 +64,7 @@ namespace CodeBase.Logic.OrcComponents
 
             if (hp == 0)
             {
+                animator.ResetTrigger("Respawn");
                 animator.SetTrigger("Die");
             }
             else
@@ -75,6 +77,13 @@ namespace CodeBase.Logic.OrcComponents
         {
             transform.position = spawnPoint.position;
             transform.rotation = spawnPoint.rotation;
+        }
+
+        public void Respawn()
+        {
+            hp = 3;
+            hpPresenter.UpdateHp(hp);
+            animator.SetTrigger("Respawn");
         }
 
         private void Movement()
@@ -100,7 +109,12 @@ namespace CodeBase.Logic.OrcComponents
         {
             yield return new WaitForSeconds(3f);
 
-            gameStateMachine.Enter<PrepearToAttackState>();
+            Player player = gameObjectsLocator.GetGameObjectByName(Constance.PlayerName).GetComponent<Player>();
+
+            if (player.hp == 0)
+                gameStateMachine.Enter<LoseState>();
+            else
+                gameStateMachine.Enter<PrepearToAttackState>();
         }
 
         // For event on attack animation

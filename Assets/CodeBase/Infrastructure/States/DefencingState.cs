@@ -12,16 +12,14 @@ namespace CodeBase.Infrastructure.States
 {
     public class DefencingState : IState
     {
-        private readonly GameStateMachine gameStateMachine;
         private readonly RandomService randomService;
         private readonly GameObjectsLocator gameObjectsLocator;
 
         private ArrowDirection playerDeffenceSide;
         private ArrowDirection orcAttackSide;
 
-        public DefencingState(GameStateMachine gameStateMachine, RandomService randomService, GameObjectsLocator gameObjectsLocator)
+        public DefencingState(RandomService randomService, GameObjectsLocator gameObjectsLocator)
         {
-            this.gameStateMachine = gameStateMachine;
             this.randomService = randomService;
             this.gameObjectsLocator = gameObjectsLocator;
         }
